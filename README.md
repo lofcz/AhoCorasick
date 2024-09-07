@@ -1,4 +1,4 @@
-# AhoCarasick
+# AhoCorasick
 
 ## Install
 
