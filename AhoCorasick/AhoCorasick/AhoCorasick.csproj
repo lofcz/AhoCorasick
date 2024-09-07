@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Authors>Matěj "lofcz" Štágl</Authors>
+        <RepositoryUrl>https://github.com/lofcz/AhoCorasick</RepositoryUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>AhoCorasickCore</PackageId>
+    </PropertyGroup>
+
+</Project>

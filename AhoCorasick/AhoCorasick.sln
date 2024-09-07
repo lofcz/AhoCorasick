@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhoCorasick", "AhoCorasick\AhoCorasick.csproj", "{0C582FCE-EFE8-4BAA-A45C-56C5BCA1718F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhoCorasick.Tests", "AhoCorasick.Tests\AhoCorasick.Tests.csproj", "{10C38078-8074-4B34-98E0-C86C02269FCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C582FCE-EFE8-4BAA-A45C-56C5BCA1718F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C582FCE-EFE8-4BAA-A45C-56C5BCA1718F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C582FCE-EFE8-4BAA-A45C-56C5BCA1718F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C582FCE-EFE8-4BAA-A45C-56C5BCA1718F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C38078-8074-4B34-98E0-C86C02269FCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C38078-8074-4B34-98E0-C86C02269FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C38078-8074-4B34-98E0-C86C02269FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C38078-8074-4B34-98E0-C86C02269FCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
