@@ -1,13 +1,27 @@
 ﻿namespace AhoCorasick;
 
-public class AhoCorasickMatch<T>(int index, string pattern, T value) where T : struct, Enum
+public class AhoCorasickMatch<T>(int index, string pattern, T value) : IAhoCorasickMatch where T : struct, Enum
 {
     public int Index { get; } = index;
     public string Pattern { get; } = pattern;
     public T Value { get; } = value;
+    object IAhoCorasickMatch.Value => Value;
 }
 
-public class AhoCorasick<TValue> where TValue : struct, Enum
+public interface IAhoCorasickMatch
+{
+    public int Index { get; }
+    public string Pattern { get; }
+    public object Value { get; }
+}
+
+public interface IAhoCorasick
+{
+    public IEnumerable<IAhoCorasickMatch> Search(string text);
+    public List<IAhoCorasickMatch> SearchAll(string text);
+}
+
+public class AhoCorasick<TValue> : IAhoCorasick where TValue : struct, Enum
 {
     class Node
     {
@@ -63,6 +77,16 @@ public class AhoCorasick<TValue> where TValue : struct, Enum
                 child.Outputs.AddRange(child.Failure.Outputs);
             }
         }
+    }
+    
+    IEnumerable<IAhoCorasickMatch> IAhoCorasick.Search(string text)
+    {
+        return Search(text);
+    }
+
+    List<IAhoCorasickMatch> IAhoCorasick.SearchAll(string text)
+    {
+        return Search(text).ToList<IAhoCorasickMatch>();
     }
 
     public IEnumerable<AhoCorasickMatch<TValue>> Search(string text)

@@ -8,6 +8,8 @@
         <RepositoryUrl>https://github.com/lofcz/AhoCorasick</RepositoryUrl>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>AhoCorasickCore</PackageId>
+        <Version>1.0.1</Version>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
 </Project>
