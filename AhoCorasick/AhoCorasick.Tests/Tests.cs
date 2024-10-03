@@ -13,7 +13,8 @@ public class AhoCorasickTests
     
     Dictionary<string, WordCategory> patterns;
     AhoCorasick<WordCategory> ahoCorasick;
-
+    AhoCorasick ahoCorasickNonGeneric;
+    
     [SetUp]
     public void Setup()
     {
@@ -26,7 +27,15 @@ public class AhoCorasickTests
             {"run", WordCategory.Verb},
             {"quickly", WordCategory.Adverb}
         };
+        
         ahoCorasick = new AhoCorasick<WordCategory>(patterns);
+        ahoCorasickNonGeneric = new AhoCorasick(new Dictionary<string, int>
+        {
+            {"his", 1},
+            {"she", 2},
+            {"he", 3},
+            {"hers", 4}
+        });
     }
 
     [Test]
@@ -43,6 +52,31 @@ public class AhoCorasickTests
             Assert.That(results[0].Pattern, Is.EqualTo("he"));
             Assert.That(results[0].Value, Is.EqualTo(WordCategory.Noun));
         });
+    }
+    
+    [Test]
+    public void Search_OverlappingMatches_ReturnsAllMatchesNonGeneric()
+    {
+        string text = "hishers";
+        List<IAhoCorasickMatch> results = ahoCorasickNonGeneric.SearchAll(text);
+
+        Assert.That(results, Has.Count.EqualTo(4));
+        
+        Assert.That(results[0].Pattern, Is.EqualTo("his"));
+        Assert.That(results[0].Value, Is.EqualTo(1));
+        Assert.That(results[0].Index, Is.EqualTo(0));
+        
+        Assert.That(results[1].Pattern, Is.EqualTo("she"));
+        Assert.That(results[1].Value, Is.EqualTo(2));
+        Assert.That(results[1].Index, Is.EqualTo(2));
+        
+        Assert.That(results[2].Pattern, Is.EqualTo("he"));
+        Assert.That(results[2].Value, Is.EqualTo(3));
+        Assert.That(results[2].Index, Is.EqualTo(3));
+        
+        Assert.That(results[3].Pattern, Is.EqualTo("hers"));
+        Assert.That(results[3].Value, Is.EqualTo(4));
+        Assert.That(results[3].Index, Is.EqualTo(3));
     }
 
     [Test]
